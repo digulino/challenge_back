@@ -7,6 +7,7 @@ to support a front end using Angular 5
 
   - Java 8
   - Local Postgre database
+  - The front end should consume this api through local connection at port `4200` (if you need to connect in another port, modify the `PessoaController` file)
   
 ## How to run
 

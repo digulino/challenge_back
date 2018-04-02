@@ -1,6 +1,7 @@
 package com.challenge.back.dao;
 
 import com.challenge.back.util.ConversionUtils;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,6 +19,7 @@ public class Pessoa {
     private String nome;
 
     @Column(name = "dt_nascimento")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dtNascimento;
 
     public Pessoa() {

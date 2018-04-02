@@ -24,15 +24,18 @@ public class PessoaService {
         return repository.findAll();
     }
 
-    public void create(Pessoa pessoa) {
-        repository.save(pessoa);
-    }
+    public Pessoa createOrUpdate(Pessoa pessoa) {
+        if (pessoa.getNome() == null) {
+            throw new IllegalArgumentException("Nome deve ser informado.");
+        } else if (pessoa.getNome().length() < 3) {
+            throw new IllegalArgumentException("Nome deve conter pelo menos 3 caracteres.");
+        }
 
-    public void update(Pessoa updatedPessoa) {
-        Pessoa pessoaToBeUpdated = repository.findById(updatedPessoa.getId()).get();
-        pessoaToBeUpdated.setNome(updatedPessoa.getNome());
-        pessoaToBeUpdated.setDtNascimento(updatedPessoa.getDtNascimento());
-        repository.save(pessoaToBeUpdated);
+        if (pessoa.getDtNascimento() == null) {
+            throw new IllegalArgumentException("Dt. Nascimento deve ser informada.");
+        }
+
+        return repository.save(pessoa);
     }
 
     public void delete(Long id) {

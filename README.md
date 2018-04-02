@@ -15,4 +15,6 @@ to support a front end using Angular 5
   - Open the project using IntelliJ IDEA and modify `resources/application.properties` file with your database data connection
   - Run the `BackApplication` file 
   
-  
+## Known issues
+
+  - All unitTests weren't implement
